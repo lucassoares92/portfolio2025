@@ -509,17 +509,17 @@
     margin: 5px 0;
 }
 
-#contato .footer-right a {
+#contato .footer-right a.social-link {
     color: #00bfff; /* Cor azul clara para os links */
     text-decoration: none; /* Remove o sublinhado */
     transition: color 0.3s ease; /* Transição suave para o hover */
 }
 
-#contato .footer-right a:hover {
+#contato .footer-right a.social-link:hover {
     color: #009acd; /* Tom mais escuro no hover */
 }
 
-#contato .footer-right a i {
+#contato .footer-right a.social-link i {
     margin-right: 8px; /* Espaço entre o ícone e o texto */
     font-size: 1.2rem; /* Tamanho do ícone */
 }
@@ -559,53 +559,70 @@
     margin-right: 5px; /* Espaço entre o ícone e o texto */
 }
 
+/* Media Query para telas de 767px ou menores */
 @media (max-width: 767px) {
     #contato .row {
-        justify-content: center; /* Centraliza as colunas horizontalmente */
-        text-align: center; /* Centraliza o texto dentro das colunas */
+        justify-content: flex-start; /* Alinha o conteúdo à esquerda */
+        text-align: left; /* Alinha o texto à esquerda */
     }
 
     #contato .footer-right {
-        text-align: center; /* Centraliza o conteúdo do footer-right */
+        text-align: left; /* Alinha todo o conteúdo à esquerda */
         width: 100%; /* Faz a coluna ocupar toda a largura disponível */
         padding: 0 15px; /* Adiciona padding lateral para evitar que o texto encoste nas bordas */
     }
 
     #contato .footer-right h3 {
-        text-align: center; /* Centraliza o título "Contato" */
-        margin-bottom: 30px; /* Aumenta o espaçamento */
-        font-size: 3rem; /* Aumenta ainda mais o tamanho do título */
+        text-align: left; /* Alinha o título "Contato" à esquerda */
+        margin-bottom: 20px; /* Reduz o espaçamento para ícones */
+        font-size: 2.5rem; /* Ajusta o tamanho do título */
     }
 
-    #contato .footer-right p {
-        text-align: center; /* Centraliza os parágrafos */
-        font-size: 1.8rem; /* Aumenta ainda mais o tamanho da fonte */
-        margin: 12px 0; /* Ajusta o espaçamento entre parágrafos */
+    /* Container para os ícones */
+    #contato .footer-right .social-icons {
+        display: flex; /* Usa flexbox para alinhar os ícones horizontalmente */
+        align-items: center; /* Alinha verticalmente ao centro */
+        margin: 10px 0; /* Ajusta o espaçamento vertical */
     }
 
-    #contato .footer-right a {
-        display: inline-block; /* Garante que os links fiquem bem posicionados */
-        font-size: 1.8rem; /* Aumenta ainda mais o tamanho da fonte dos links */
+    #contato .footer-right .social-icons p {
+        display: inline-block; /* Garante que os parágrafos fiquem em linha */
+        margin: 0; /* Remove margens para alinhamento */
     }
 
-    #contato .footer-right a i {
-        font-size: 2rem; /* Aumenta ainda mais o tamanho dos ícones */
+    /* Esconde os textos e exibe apenas os ícones */
+    #contato .footer-right .social-icons strong,
+    #contato .footer-right .social-icons .social-text {
+        display: none; /* Esconde os textos em telas menores */
+    }
+
+    #contato .footer-right a.social-link {
+        display: inline-block; /* Garante que os ícones fiquem em linha */
+        font-size: 3rem; /* Aumenta o tamanho dos ícones */
+        margin: 0 20px 0 0; /* Espaçamento entre os ícones (à direita) */
+        line-height: 1; /* Remove espaçamento vertical extra */
+    }
+
+    #contato .footer-right a.social-link i {
+        margin-right: 0; /* Remove o espaço à direita dos ícones */
+        font-size: 3rem; /* Aumenta o tamanho dos ícones */
     }
 
     #contato .footer-right blockquote {
-        text-align: center; /* Centraliza a citação */
-        font-size: 1.8rem; /* Aumenta ainda mais o tamanho da fonte da citação */
-        padding: 25px; /* Aumenta o padding interno */
-        margin: 35px 0; /* Aumenta o espaçamento externo */
+        text-align: left; /* Alinha a citação à esquerda */
+        font-size: 1.6rem; /* Ajusta o tamanho da fonte da citação */
+        padding: 20px; /* Ajusta o padding interno */
+        margin: 20px 0; /* Ajusta o espaçamento externo */
     }
 
     .back-to-top {
-        text-align: center; /* Centraliza o botão */
+        text-align: left; /* Alinha o botão à esquerda */
+        margin-top: 20px; /* Ajusta o espaçamento acima do botão */
     }
 
     .back-to-top .btn {
-        font-size: 1.6rem; /* Aumenta ainda mais o tamanho da fonte do botão */
-        padding: 14px 28px; /* Aumenta o padding do botão */
+        font-size: 1.4rem; /* Ajusta o tamanho da fonte do botão */
+        padding: 12px 24px; /* Ajusta o padding do botão */
     }
 }
 
@@ -656,4 +673,28 @@ body {
 /* Ajuste para a div container que envolve a seção #projetos */
 .container {
     margin-bottom: 0; /* Remove margem inferior do container para evitar espaço */
+}
+
+/* Estilo para o item ativo na navbar */
+.navbar-nav > li.active > a {
+    background-color: #00bfff; /* Cor de fundo para o item ativo */
+    color: #fff; /* Cor do texto */
+    border-radius: 5px; /* Bordas arredondadas */
+}
+
+.navbar-nav > li.active > a:hover,
+.navbar-nav > li.active > a:focus {
+    background-color: #009acd; /* Cor ao passar o mouse ou focar */
+    color: #fff;
+}
+
+/* Estilo padrão para links da navbar (não ativos) */
+.navbar-nav > li > a {
+    color: #fff; /* Cor padrão do texto */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Transição suave */
+}
+
+.navbar-nav > li > a:hover {
+    background-color: #555; /* Cor ao passar o mouse em itens não ativos */
+    color: #fff;
 }

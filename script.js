@@ -1,11 +1,45 @@
-// Smooth scrolling para links com a classe "hash"
 $(document).ready(function () {
+    // Smooth scrolling para links com a classe "hash"
     $('a.hash').click(function (event) {
         event.preventDefault();
         var target = $(this).attr('href');
-        $('html, body').animate({
-            scrollTop: $(target).offset().top - 50 // Ajusta o offset para a navbar fixa
-        }, 1000);
+        if ($(target).length) { // Verifica se o elemento alvo existe
+            $('html, body').animate({
+                scrollTop: $(target).offset().top - 50 // Ajusta o offset para a navbar fixa
+            }, 1000);
+            // Não definimos 'active' aqui diretamente, deixamos o scroll cuidar disso
+        }
+    });
+
+    // Atualiza o item ativo com base no scroll
+    $(window).scroll(function () {
+        var scrollPosition = $(document).scrollTop() + 70; // Ajusta para a altura da navbar
+
+        // Remove 'active' de todos os itens antes de decidir qual será o ativo
+        $('a.hash').parent().removeClass('active');
+
+        // Itera sobre todos os links com a classe 'hash'
+        var activeSet = false; // Flag para rastrear se já definimos um item ativo
+        $('a.hash').each(function () {
+            var currentLink = $(this);
+            var refElement = $(currentLink.attr('href'));
+
+            if (refElement.length) { // Verifica se o elemento referenciado existe
+                var sectionTop = refElement.offset().top;
+                var sectionBottom = sectionTop + refElement.outerHeight();
+
+                // Verifica se a posição de rolagem está dentro dos limites da seção
+                if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
+                    currentLink.parent().addClass('active');
+                    activeSet = true;
+                }
+            }
+        });
+
+        // Caso especial para o topo da página (Home)
+        if (!activeSet && scrollPosition < $('#sobre-mim').offset().top - 70) {
+            $('a[href="#home"]').parent().addClass('active');
+        }
     });
 
     // Configuração das partículas no header
@@ -163,4 +197,7 @@ $(document).ready(function () {
         },
         "retina_detect": true
     });
+
+    // Força a atualização inicial do estado 'active' ao carregar a página
+    $(window).trigger('scroll');
 });
