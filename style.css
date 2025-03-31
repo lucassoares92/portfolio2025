@@ -1,0 +1,659 @@
+/* Estilo para o cabeçalho com a imagem */
+#home {
+    margin: 0; /* Remove margens da seção */
+    padding: 0; /* Remove padding da seção */
+}
+
+#home .heading {
+    position: relative;
+    min-height: 600px; /* Altura mínima para telas grandes */
+    height: auto; /* Ajusta a altura com base no conteúdo */
+    color: #fff; /* Texto branco para contraste */
+    padding: 50px 0;
+    margin: 0; /* Remove margens que podem causar bordas */
+    background-color: #1a1a1a; /* Cor de fundo para preencher espaços vazios (se necessário) */
+    overflow: hidden; /* Evita que a imagem vaze */
+}
+
+/* Estilo para as partículas */
+#particles-js {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1; /* Coloca as partículas acima da imagem, mas abaixo do texto */
+}
+
+#home .heading .header-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%; /* Preenche a largura da div */
+    height: 100%; /* Preenche a altura da div */
+    object-fit: cover; /* Faz a imagem preencher a div, cortando se necessário */
+    object-position: top; /* Prioriza a parte superior da imagem */
+    z-index: 0; /* Coloca a imagem atrás das partículas e do conteúdo */
+}
+
+#home .heading::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Overlay escuro para legibilidade */
+    z-index: 1; /* Coloca o overlay acima da imagem e das partículas, mas abaixo do texto */
+}
+
+#home .heading .head {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    right: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    z-index: 2; /* Garante que o texto fique acima do overlay */
+}
+
+#home .heading h1 {
+    font-size: 1.5rem;
+    font-weight: normal;
+    margin: 0;
+    text-align: left;
+}
+
+#home .heading p {
+    font-size: 1.2rem;
+    margin: 0;
+    text-align: right;
+}
+
+/* Contêiner para a mensagem, subtítulo e botão */
+#home .heading .welcome-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex; /* Usa flexbox para centralizar */
+    flex-direction: column; /* Alinha os elementos em coluna */
+    align-items: center; /* Centraliza horizontalmente */
+    justify-content: center; /* Centraliza verticalmente */
+    text-align: center;
+    z-index: 2; /* Garante que o conteúdo fique acima do overlay e das partículas */
+}
+
+/* Estilo para a mensagem de boas-vindas */
+#home .heading .welcome-message {
+    color: #fff; /* Texto branco para contraste */
+    font-size: 5rem; /* Tamanho padrão em telas grandes */
+    font-weight: bold;
+    margin: 0;
+    opacity: 0; /* Começa invisível */
+    transform: translate(0, 0) scale(0.8); /* Começa com escala reduzida */
+    animation: fadeInScale 2s ease-in-out forwards, pulse 2s ease-in-out 2s infinite; /* Remove o glow */
+}
+
+/* Estilo para o subtítulo */
+#home .heading .welcome-subtitle {
+    color: #ddd; /* Cor mais clara para contraste com a mensagem principal */
+    font-size: 2.5rem; /* Tamanho padrão em telas grandes */
+    font-weight: normal;
+    margin: 20px 0; /* Espaçamento padrão */
+    opacity: 0; /* Começa invisível */
+    animation: fadeIn 1s ease-in-out 3s forwards; /* Aparece após a mensagem principal */
+}
+
+/* Estilo para o botão CTA */
+#home .heading .welcome-cta {
+    margin-top: 30px; /* Espaçamento padrão */
+    font-size: 1.8rem; /* Tamanho padrão em telas grandes */
+    padding: 15px 30px; /* Padding padrão */
+    background-color: #00bfff; /* Azul claro que combina com o tema */
+    border-color: #00bfff; /* Borda combinando com o fundo */
+    opacity: 0; /* Começa invisível */
+    animation: fadeIn 1s ease-in-out 4s forwards; /* Aparece após o subtítulo */
+    transition: transform 0.3s ease, background-color 0.3s ease; /* Efeito de hover */
+}
+
+#home .heading .welcome-cta:hover {
+    transform: scale(1.1); /* Aumenta levemente ao passar o mouse */
+    background-color: #009acd; /* Tom mais escuro de azul para o hover */
+    border-color: #009acd; /* Borda combinando com o hover */
+}
+
+/* Animação de fade-in com escala */
+@keyframes fadeInScale {
+    0% {
+        opacity: 0;
+        transform: translate(0, 0) scale(0.8);
+    }
+    100% {
+        opacity: 1;
+        transform: translate(0, 0) scale(1);
+    }
+}
+
+/* Animação de pulsação */
+@keyframes pulse {
+    0% {
+        transform: translate(0, 0) scale(1);
+    }
+    50% {
+        transform: translate(0, 0) scale(1.05);
+    }
+    100% {
+        transform: translate(0, 0) scale(1);
+    }
+}
+
+/* Animação de fade-in para subtítulo e botão */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Ícones de redes sociais */
+#home .links {
+    position: absolute;
+    bottom: 20px;
+    left: 50%; /* Mantém a referência para o centro */
+    transform: translateX(-50%); /* Centraliza inicialmente */
+    text-align: center;
+    z-index: 2; /* Garante que os ícones fiquem acima do overlay */
+}
+
+/* Ajuste para alinhar os ícones */
+#home .links ul {
+    display: inline-flex; /* Usa flexbox para alinhar os ícones */
+    justify-content: center; /* Centraliza os ícones dentro do contêiner */
+    padding: 0; /* Remove padding padrão */
+}
+
+#home .links .btn {
+    margin: 0 10px; /* Espaçamento padrão entre os ícones */
+}
+
+/* Estilo para a seção Showcase (Infraestrutura, Desenvolvimento, Segurança) */
+#home .showcase {
+    text-align: center;
+    margin-top: 10px; /* Mantido para ficar quase rente à imagem do header */
+}
+
+#home .showcase .col-sm-4 {
+    padding: 0 10px; /* Ajusta o espaçamento entre as divs */
+}
+
+#home .showcase .well {
+    position: relative; /* Necessário para o z-index funcionar */
+    background-color: #fff; /* Fundo branco */
+    color: #333; /* Texto escuro para contraste */
+    padding: 10px; /* Mantido para aproximar o texto das bordas */
+    margin: 0 10px;
+    min-height: 150px; /* Mantido para permitir crescimento */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 1; /* Z-index padrão */
+}
+
+#home .showcase .well:hover {
+    z-index: 2; /* Aumenta o z-index no hover para sobrepor às outras divs */
+}
+
+#home .showcase h1 {
+    margin: 0;
+    font-size: 3rem; /* Mantido o tamanho maior */
+}
+
+#home .showcase h2 {
+    margin: 10px 0;
+    font-size: 1.8rem; /* Mantido o tamanho maior */
+    overflow-wrap: break-word; /* Garante que o texto quebre de forma controlada */
+    word-break: break-word; /* Compatibilidade adicional */
+    text-align: center; /* Centraliza o texto */
+}
+
+/* Media Queries para Responsividade */
+@media (max-width: 768px) {
+    #home .heading {
+        min-height: 400px; /* Reduz a altura mínima em telas menores */
+    }
+
+    #home .heading h1 {
+        font-size: 1.2rem;
+    }
+
+    #home .heading p {
+        font-size: 1rem;
+    }
+
+    #home .heading .welcome-message {
+        font-size: 3.5rem; /* Ajustado para telas médias */
+        animation: fadeInScale 2s ease-in-out forwards, pulse 2s ease-in-out 2s infinite;
+    }
+
+    #home .heading .welcome-subtitle {
+        font-size: 1.8rem; /* Ajustado para telas médias */
+        margin: 15px 0; /* Ajustado para proporção */
+    }
+
+    #home .heading .welcome-cta {
+        font-size: 1.4rem; /* Ajustado para telas médias */
+        padding: 10px 20px; /* Ajusta o padding do botão */
+        margin-top: 20px; /* Ajustado para proporção */
+    }
+
+    #home .links .btn {
+        margin: 0 8px; /* Reduz o espaçamento entre os ícones */
+        font-size: 0.9rem; /* Reduz o tamanho dos ícones em telas menores */
+    }
+
+    #home .showcase {
+        margin-top: 5px; /* Mantido para ficar quase rente */
+    }
+
+    #home .showcase .well {
+        min-height: 120px; /* Ajusta a altura mínima em telas menores */
+        padding: 8px; /* Mantido para aproximar o texto das bordas */
+        margin: 10px 0; /* Ajusta a margem para empilhar as divs */
+    }
+
+    #home .showcase h1 {
+        font-size: 2.5rem; /* Mantido o tamanho do ícone */
+    }
+
+    #home .showcase h2 {
+        font-size: 1.5rem; /* Mantido o tamanho do texto */
+    }
+}
+
+@media (max-width: 480px) {
+    #home .heading {
+        min-height: 300px; /* Reduz ainda mais a altura em telas muito pequenas */
+    }
+
+    #home .heading h1 {
+        font-size: 1rem;
+    }
+
+    #home .heading p {
+        font-size: 0.9rem;
+    }
+
+    #home .heading .welcome-message {
+        font-size: 2rem; /* Ajustado para telas pequenas */
+        white-space: normal; /* Permite quebra de linha */
+        width: 90%; /* Limita a largura para evitar transbordo */
+        animation: fadeInScale 2s ease-in-out forwards, pulse 2s ease-in-out 2s infinite;
+    }
+
+    #home .heading .welcome-subtitle {
+        font-size: 1.2rem; /* Ajustado para telas pequenas */
+        margin: 10px 0; /* Ajustado para proporção */
+    }
+
+    #home .heading .welcome-cta {
+        font-size: 1rem; /* Ajustado para telas pequenas */
+        padding: 8px 16px; /* Ajusta o padding do botão */
+        margin-top: 15px; /* Ajustado para proporção */
+    }
+
+    #home .links .btn {
+        margin: 0 5px; /* Reduz ainda mais o espaçamento entre os ícones */
+        font-size: 0.8rem; /* Reduz o tamanho dos ícones */
+    }
+
+    #home .showcase {
+        margin-top: 0px; /* Mantido para ficar quase rente */
+    }
+
+    #home .showcase .well {
+        min-height: 80px; /* Reduz a altura mínima para telas muito pequenas */
+        padding: 5px; /* Mantido para aproximar o texto das bordas */
+        margin: 10px 0; /* Ajusta a margem para empilhar as divs */
+    }
+
+    #home .showcase h1 {
+        font-size: 2rem; /* Mantido o tamanho do ícone */
+    }
+
+    #home .showcase h2 {
+        font-size: 1.2rem; /* Mantido o tamanho do texto */
+    }
+}
+
+/* Media Query para telas de 385px ou menos */
+@media (max-width: 385px) {
+    #home .heading {
+        min-height: 450px; /* Aumenta a altura mínima para acomodar os elementos */
+    }
+
+    #home .heading .welcome-container {
+        top: 50%; /* Mantém centralizado verticalmente */
+        transform: translate(-50%, -50%);
+        padding: 0 10px; /* Adiciona padding lateral */
+    }
+
+    #home .heading .welcome-message {
+        font-size: 3rem; /* Tamanho intermediário */
+        width: 100%; /* Ocupa toda a largura disponível */
+        white-space: normal; /* Permite quebra de linha */
+        word-wrap: break-word; /* Garante que o texto quebre sem cortar palavras */
+        line-height: 1.1; /* Reduz o espaçamento entre linhas */
+    }
+
+    #home .heading .welcome-subtitle {
+        font-size: 1.5rem; /* Tamanho intermediário */
+        margin: 10px 0; /* Reduz o espaçamento */
+    }
+
+    #home .heading .welcome-cta {
+        font-size: 1.2rem; /* Tamanho intermediário */
+        padding: 10px 20px; /* Ajusta o padding */
+        margin-top: 15px; /* Espaçamento acima */
+        margin-bottom: 10px; /* Espaçamento abaixo para os ícones */
+    }
+
+    #home .links {
+        position: absolute; /* Mantém posicionamento absoluto */
+        bottom: 10px; /* Ajusta a posição para ficar visível */
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100%; /* Garante que os ícones ocupem a largura disponível */
+    }
+
+    #home .links ul {
+        display: flex; /* Usa flexbox para alinhar os ícones */
+        justify-content: center; /* Centraliza os ícones */
+        align-items: center; /* Alinha verticalmente com o botão */
+        padding: 0; /* Remove padding */
+    }
+
+    #home .links .btn {
+        margin: 0 5px; /* Reduz o espaçamento entre os ícones */
+        padding: 5px; /* Reduz o padding dos botões */
+        font-size: 0.9rem; /* Tamanho ajustado para os ícones */
+    }
+}
+
+/* Estilo para a seção Sobre Mim */
+#sobre-mim h1 {
+    text-align: left;
+    margin-bottom: 30px;
+}
+
+#sobre-mim .avatar {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-bottom: 20px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#sobre-mim h2 {
+    margin-top: 0;
+    text-align: left;
+}
+
+#sobre-mim p {
+    text-align: left;
+}
+
+/* Estilo para a seção Atividades e Conquistas */
+#atividades h1 {
+    text-align: left;
+    margin-bottom: 30px;
+}
+
+#atividades h2 {
+    text-align: left;
+}
+
+#atividades ul {
+    list-style-type: disc;
+    padding-left: 20px;
+    text-align: left;
+}
+
+/* Estilo para a seção Projetos */
+#projetos h1 {
+    text-align: left;
+    margin-bottom: 30px;
+}
+
+#projetos .thumbnail {
+    text-align: center;
+    padding: 10px;
+}
+
+#projetos .placeholder-img {
+    background-color: #ddd;
+    height: 150px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #666;
+    font-style: italic;
+}
+
+#projetos .cust-caption {
+    padding: 10px;
+    text-align: center;
+}
+
+#projetos .cust-caption h3 {
+    margin-top: 0;
+    text-align: center;
+}
+
+/* Estilo do Footer */
+#contato {
+    padding: 40px 0;
+    margin: 0; /* Remove qualquer margem que possa causar espaços */
+    border-top: 2px solid #00bfff; /* Linha divisória no topo */
+    background: linear-gradient(135deg, #333 0%, #1a1a1a 100%); /* Gradiente no fundo */
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.3); /* Sombra no topo */
+    position: relative; /* Necessário para as partículas */
+    width: 100%; /* Garante que o footer ocupe toda a largura */
+    overflow: hidden; /* Evita que elementos internos criem espaços */
+}
+
+.footer-particles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0; /* Coloca as partículas atrás do conteúdo */
+    opacity: 0.3; /* Partículas mais sutis */
+}
+
+#contato .container {
+    position: relative;
+    z-index: 1; /* Garante que o conteúdo fique acima das partículas */
+}
+
+#contato .row {
+    display: flex;
+    align-items: flex-start; /* Alinha ao topo para consistência */
+    flex-wrap: wrap; /* Permite que as colunas quebrem em telas menores */
+    justify-content: center; /* Centraliza o conteúdo por padrão */
+}
+
+#contato .footer-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centraliza verticalmente o conteúdo */
+    text-align: left; /* Alinhamento padrão para telas grandes */
+}
+
+#contato h3 {
+    text-align: left;
+    margin-bottom: 20px;
+    color: #00bfff; /* Cor azul para o título */
+}
+
+#contato .footer-right p {
+    margin: 5px 0;
+}
+
+#contato .footer-right a {
+    color: #00bfff; /* Cor azul clara para os links */
+    text-decoration: none; /* Remove o sublinhado */
+    transition: color 0.3s ease; /* Transição suave para o hover */
+}
+
+#contato .footer-right a:hover {
+    color: #009acd; /* Tom mais escuro no hover */
+}
+
+#contato .footer-right a i {
+    margin-right: 8px; /* Espaço entre o ícone e o texto */
+    font-size: 1.2rem; /* Tamanho do ícone */
+}
+
+#contato .footer-right blockquote {
+    margin: 20px 0;
+    font-style: italic;
+    color: #ccc;
+    text-align: left;
+    border-left: 4px solid #00bfff; /* Borda azul à esquerda */
+    padding-left: 15px; /* Espaço entre a borda e o texto */
+    background-color: rgba(255, 255, 255, 0.05); /* Fundo leve */
+    padding: 10px 15px; /* Padding interno */
+    border-radius: 4px; /* Bordas arredondadas */
+}
+
+/* Botão Voltar ao Topo */
+.back-to-top {
+    text-align: right;
+    margin-top: 20px;
+    margin-bottom: 0; /* Remove margem inferior para evitar espaço */
+}
+
+.back-to-top .btn {
+    background-color: #00bfff; /* Azul claro */
+    border-color: #00bfff;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.back-to-top .btn:hover {
+    background-color: #009acd; /* Tom mais escuro no hover */
+    border-color: #009acd;
+    transform: scale(1.05); /* Leve aumento no hover */
+}
+
+.back-to-top .btn i {
+    margin-right: 5px; /* Espaço entre o ícone e o texto */
+}
+
+@media (max-width: 767px) {
+    #contato .row {
+        justify-content: center; /* Centraliza as colunas horizontalmente */
+        text-align: center; /* Centraliza o texto dentro das colunas */
+    }
+
+    #contato .footer-right {
+        text-align: center; /* Centraliza o conteúdo do footer-right */
+        width: 100%; /* Faz a coluna ocupar toda a largura disponível */
+        padding: 0 15px; /* Adiciona padding lateral para evitar que o texto encoste nas bordas */
+    }
+
+    #contato .footer-right h3 {
+        text-align: center; /* Centraliza o título "Contato" */
+        margin-bottom: 30px; /* Aumenta o espaçamento */
+        font-size: 3rem; /* Aumenta ainda mais o tamanho do título */
+    }
+
+    #contato .footer-right p {
+        text-align: center; /* Centraliza os parágrafos */
+        font-size: 1.8rem; /* Aumenta ainda mais o tamanho da fonte */
+        margin: 12px 0; /* Ajusta o espaçamento entre parágrafos */
+    }
+
+    #contato .footer-right a {
+        display: inline-block; /* Garante que os links fiquem bem posicionados */
+        font-size: 1.8rem; /* Aumenta ainda mais o tamanho da fonte dos links */
+    }
+
+    #contato .footer-right a i {
+        font-size: 2rem; /* Aumenta ainda mais o tamanho dos ícones */
+    }
+
+    #contato .footer-right blockquote {
+        text-align: center; /* Centraliza a citação */
+        font-size: 1.8rem; /* Aumenta ainda mais o tamanho da fonte da citação */
+        padding: 25px; /* Aumenta o padding interno */
+        margin: 35px 0; /* Aumenta o espaçamento externo */
+    }
+
+    .back-to-top {
+        text-align: center; /* Centraliza o botão */
+    }
+
+    .back-to-top .btn {
+        font-size: 1.6rem; /* Aumenta ainda mais o tamanho da fonte do botão */
+        padding: 14px 28px; /* Aumenta o padding do botão */
+    }
+}
+
+/* Ajustes gerais */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0; /* Remove margens do body */
+    padding: 0; /* Remove padding do body */
+    /* Removida a definição de background-color para manter o fundo padrão (branco) */
+}
+
+.navbar-fixed-top {
+    margin-bottom: 0; /* Remove margem inferior da navbar */
+}
+
+.main-nav {
+    padding-top: 70px;
+    margin: 0; /* Remove margens da classe main-nav */
+}
+
+.stm-font {
+    font-family: 'Arial', sans-serif;
+}
+
+.dark-bg {
+    background-color: #333;
+    color: white;
+}
+
+.shadow {
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.up-hover:hover {
+    transform: translateY(-5px);
+    transition: all 0.3s ease;
+}
+
+.color-hover:hover {
+    background-color: #f8f9fa;
+}
+
+/* Ajuste para a última seção antes do footer */
+#projetos {
+    margin-bottom: 0; /* Remove margem inferior para evitar espaço antes do footer */
+}
+
+/* Ajuste para a div container que envolve a seção #projetos */
+.container {
+    margin-bottom: 0; /* Remove margem inferior do container para evitar espaço */
+}
